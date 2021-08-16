@@ -1,16 +1,16 @@
 page 50101 "LecturerList"
 {
-    Caption = 'Lecturer';
-    PageType = Card;
+    Caption = 'Lecturer List';
+    PageType = List;
     ApplicationArea = All;
-    UsageCategory = Administration;
+    UsageCategory = Lists;
     SourceTable = Lecturer;
 
     layout
     {
         area(Content)
         {
-            group(General)
+            repeater(General)
             {
                 field(LecturerID; Rec.LecturerID)
                 {
@@ -23,22 +23,12 @@ page 50101 "LecturerList"
                     ApplicationArea = All;
                 }
 
-            }
-        }
-    }
+                field(Specialization; Rec.Specialization)
+                {
+                    Caption = 'Specialization';
+                    ApplicationArea = All;
+                }
 
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-                ApplicationArea = All;
-
-                trigger OnAction()
-                begin
-
-                end;
             }
         }
     }

@@ -5,10 +5,12 @@ table 50101 "Lecturer"
         field(1; LecturerID; Code[20])
         {
             DataClassification = CustomerContent;
+            TableRelation = Lecturer.LecturerID;
         }
         field(2; Name; Text[100])
         {
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(3; "Specialization"; Text[30])
         {

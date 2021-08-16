@@ -2,7 +2,7 @@ table 50100 "Student"
 {
     fields
     {
-        field(1; StudentID; Code[20])
+        field(1; StudentID; Code[10])
         {
             DataClassification = CustomerContent;
         }

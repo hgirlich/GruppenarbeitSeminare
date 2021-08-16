@@ -4,17 +4,25 @@ table 50104 Grade
 
     fields
     {
-        field(1; "Matrikelnummer"; Integer)
+        field(1; "StudentID"; Code[10])
         {
-            Caption = 'Matrikelnummer';
+            Caption = 'Student ID';
             DataClassification = CustomerContent;
         }
-        field(2; "Seminar Code"; Integer)
+        field(2; "StudentName"; Text[100])
         {
-            Caption = 'Seminar Code';
+            Caption = 'Student Name';
+            DataClassification = CustomerContent;
+        }
+        field(3; "SeminarID"; Code[10])
+        {
+            Caption = 'Seminar ID';
+        }
+        field(4; "Date"; Date)
+        {
 
         }
-        field(3; "Grade"; Code[5])
+        field(5; "Grade"; Code[5])
         {
             Caption = 'Grade';
         }
@@ -22,7 +30,7 @@ table 50104 Grade
 
     keys
     {
-        key(PK; "Matrikelnummer", Grade)
+        key(PK; "StudentID", Grade)
         {
             Clustered = true;
         }

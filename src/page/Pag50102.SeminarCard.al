@@ -1,9 +1,9 @@
-page 50102 "SeminarList"
+page 50102 "SeminarCard"
 {
-    Caption = 'Seminar';
-    PageType = Card;
+    Caption = 'Seminar Card';
+    PageType = Document;
     ApplicationArea = All;
-    UsageCategory = Administration;
+    UsageCategory = Documents;
     SourceTable = Seminar;
 
     layout
@@ -15,37 +15,43 @@ page 50102 "SeminarList"
                 field("Seminar Name"; Rec."Seminar Name")
                 {
                     Caption = 'Seminar Name';
-                    ApplicationArea = All;
-                    TableRelation = Seminar."Seminar Name";
                 }
                 field("SeminarID"; Rec.SeminarID)
                 {
                     Caption = 'Seminar ID';
-                    ApplicationArea = All;
-                    TableRelation = Seminar.SeminarID;
                 }
                 field(LecturerID; Rec.LecturerID)
                 {
                     Caption = 'Lecturer ID';
-                    ApplicationArea = All;
-                    TableRelation = Lecturer.LecturerID;
+                }
+                field(LecturerName; Rec.LecturerName)
+                {
+                    Caption = 'Lecturer Name';
                 }
                 field(Description; Rec.Description)
                 {
                     Caption = 'Description';
-                    ApplicationArea = All;
                 }
                 field(Date; Rec.Date)
                 {
                     Caption = 'Date';
-                    ApplicationArea = All;
+                }
+                field(IsSubjectToExamination; Rec.IsSubjectToExamination)
+                {
+                    Caption = 'Is Subject To Examination';
                 }
             }
-            part(Lines; "Participants Subpage")
+            part(Lines; "Participant List Subpage")
             {
                 Caption = 'Participants';
                 SubPageLink = "SeminarID" = field("SeminarID");
             }
         }
     }
+
+    /*     trigger OnOpenPage()
+        begin
+            if not Rec.get then
+                Rec.Insert;
+        end; */
 }

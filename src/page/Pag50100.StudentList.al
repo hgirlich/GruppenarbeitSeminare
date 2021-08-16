@@ -1,27 +1,28 @@
 page 50100 "StudentList"
 {
-    Caption = 'Student';
-    PageType = Card;
+    Caption = 'Student List';
+    PageType = List;
     ApplicationArea = All;
-    UsageCategory = Administration;
+    UsageCategory = Lists;
     SourceTable = Student;
 
     layout
     {
         area(Content)
         {
-            group(General)
+            repeater(General)
             {
+                Caption = 'General';
                 field(StudentID; Rec.StudentID)
                 {
-                    ApplicationArea = All;
-                    Caption = 'MyField';
+                    //ApplicationArea = All;
+                    Caption = 'Student ID';
+                    TableRelation = Student.StudentID;
                 }
                 field(Name; Rec.Name)
                 {
-                    ApplicationArea = All;
+                    //ApplicationArea = All;
                     Caption = 'Name';
-
                 }
             }
         }
