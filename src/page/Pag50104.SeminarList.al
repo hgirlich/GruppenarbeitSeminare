@@ -4,35 +4,47 @@ page 50104 "SeminarList"
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = Seminar;
-
+    SourceTable = "Seminar";
+    //CardPageId = 50102;
     layout
     {
         area(Content)
         {
             repeater(General)
             {
-                field(SeminarID; Rec.SeminarID)
+                field("SeminarID"; Rec."SeminarID")
                 {
-                    ApplicationArea = All;
+                    Editable = false;
                 }
                 field("Seminar Name"; Rec."Seminar Name")
                 {
-                    ApplicationArea = All;
+
                 }
 
                 field(LecturerID; Rec.LecturerID)
                 {
-                    ApplicationArea = All;
+
+                }
+                field(LecturerName; Rec.LecturerName)
+                {
+
                 }
                 field(IsSubjectToExamination; Rec.IsSubjectToExamination)
                 {
-                    ApplicationArea = All;
+
                 }
                 field(Date; Rec.Date)
                 {
-                    ApplicationArea = All;
+
                 }
+            }
+        }
+        area(FactBoxes)
+        {
+            part("Seminar FactBox"; "SeminarFactBox")
+            {
+                Caption = 'Seminar Information FactBox';
+                SubPageLink = "SeminarID" = field("SeminarID");
             }
         }
     }
@@ -54,14 +66,6 @@ page 50104 "SeminarList"
                 Caption = 'Add new Seminar';
                 ApplicationArea = All;
                 RunObject = page 50102;
-                RunPageLink = "SeminarID" = field(SeminarID);
-            }
-
-            action(ShowGrades)
-            {
-                Caption = 'Show Grades';
-                ApplicationArea = All;
-                RunObject = page 50106;
                 RunPageLink = "SeminarID" = field(SeminarID);
             }
         }

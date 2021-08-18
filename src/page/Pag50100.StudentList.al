@@ -5,7 +5,6 @@ page 50100 "StudentList"
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = Student;
-
     layout
     {
         area(Content)
@@ -15,29 +14,47 @@ page 50100 "StudentList"
                 Caption = 'General';
                 field(StudentID; Rec.StudentID)
                 {
-                    //ApplicationArea = All;
-                    Caption = 'Student ID';
-                    TableRelation = Student.StudentID;
+                    Editable = false;
+                    //TableRelation = Student.StudentID;
                 }
                 field(Name; Rec.Name)
                 {
-                    //ApplicationArea = All;
-                    Caption = 'Name';
+
+                }
+                field(Vorname; Rec.Vorname)
+                {
+
+                }
+                field(Adresse1; Rec.Address1)
+                {
+
+                }
+                field(Adresse2; Rec.Address2)
+                {
+
+                }
+                field(PLZ; Rec.PLZ)
+                {
+
+                }
+                field(City; Rec.City)
+                {
+
                 }
             }
         }
     }
-
-
     actions
     {
-        area(Processing)
+        // Adds an action on the Actions menu of the action bar that opens the page Customer Ledger Entries. 
+        area(Navigation)
         {
-            action(ActionName)
+            action("Show Grades")
             {
                 ApplicationArea = All;
-
-                trigger OnAction()
+                RunObject = page "GradesList";
+                RunPageLink = "StudentID" = field("StudentID");
+                trigger OnAction();
                 begin
 
                 end;

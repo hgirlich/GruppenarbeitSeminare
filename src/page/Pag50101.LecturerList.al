@@ -14,21 +14,32 @@ page 50101 "LecturerList"
             {
                 field(LecturerID; Rec.LecturerID)
                 {
-                    Caption = 'Lecturer ID';
-                    ApplicationArea = All;
+                    Editable = false;
                 }
                 field(Name; Rec.Name)
                 {
-                    Caption = 'Name';
-                    ApplicationArea = All;
-                }
 
-                field(Specialization; Rec.Specialization)
+                }
+                field(Vorname; Rec.Vorname)
                 {
-                    Caption = 'Specialization';
-                    ApplicationArea = All;
-                }
 
+                }
+                field(Adresse1; Rec.Address1)
+                {
+
+                }
+                field(Adresse2; Rec.Address2)
+                {
+
+                }
+                field(Stadt; Rec.Stadt)
+                {
+
+                }
+                field(PLZ; Rec.PLZ)
+                {
+
+                }
             }
         }
     }

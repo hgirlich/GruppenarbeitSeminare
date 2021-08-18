@@ -1,25 +1,28 @@
 table 50102 "Seminar"
 {
-    LookupPageId = 50102;
-    DrillDownPageId = 50102;
-
+    DataClassification = CustomerContent;
+    LookupPageId = 50107;
+    DrillDownPageId = 50107;
     fields
     {
-        field(1; "SeminarID"; Code[10])
+        field(1; "SeminarID"; Code[20])
         {
             DataClassification = CustomerContent;
         }
-        field(2; "Seminar Name"; Text[50])
+        field(2; "Seminar Name"; Text[100])
         {
             DataClassification = CustomerContent;
         }
         field(3; "LecturerID"; Code[20])
         {
             DataClassification = CustomerContent;
+            TableRelation = Lecturer.LecturerID;
         }
-        field(4; "LecturerName"; Code[50])
+        field(4; "LecturerName"; Text[100])
         {
-            DataClassification = CustomerContent;
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup(Lecturer.Name where("LecturerID" = field("LecturerID")));
         }
         field(5; "Description"; Text[100])
         {
@@ -33,26 +36,31 @@ table 50102 "Seminar"
         {
             DataClassification = CustomerContent;
         }
-    }
-
-    keys
-    {
-        key(PK; "SeminarID")
+        field(20; "No. Series"; Code[20])
         {
-            Clustered = true;
+
         }
     }
 
-    var
-        seminarSetup: Record "Seminar";
+    /*     keys
+        {
+            key(PK; "SeminarID")
+            {
+                Clustered = true;
+            }
+        } */
 
-    /*     trigger OnInsert()
-        begin
-            if "SeminarID" = '' then begin
-                seminarSetup.get();
-                seminarSetup.TestField("SeminarID");
-                //NoSeriesMgt.InitSeries(seminarSetup."Meal Order No. Series Code", '', Today, "No.", "No. Series");
-            end;
-        end; 
-    */
+    var
+        seminarSetup: Record "Seminar Setup";
+        noSeriesMgt: Codeunit NoSeriesManagement;
+
+    trigger OnInsert()
+    begin
+        if "SeminarID" = '' then begin
+            seminarSetup.get();
+            seminarSetup.TestField("Seminar No. Series Code");
+            //NoSeriesMgt.InitSeries(seminarSetup.SeminarID, '', Today, SeminarID, "No. Series");
+            noSeriesMgt.InitSeries(seminarSetup."Seminar No. Series Code", '', Today, "SeminarID", "No. Series");
+        end;
+    end;
 }

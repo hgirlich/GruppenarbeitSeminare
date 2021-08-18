@@ -1,22 +1,28 @@
-page 50103 "Participant List Subpage"
+page 50108 "GradesList"
 {
-    PageType = ListPart;
-    UsageCategory = Lists;
-    SourceTable = "SeminarParticipantLine";
+    Caption = 'Grades List';
+    PageType = List;
     ApplicationArea = All;
+    UsageCategory = Lists;
+    SourceTable = SeminarParticipantLine;
+
     layout
     {
         area(Content)
         {
-            repeater(Participants)
+            repeater(General)
             {
                 field(SeminarID; Rec.SeminarID)
                 {
-                    Visible = false;
+                    Editable = false;
+                }
+                field("Seminar Name"; Rec."Seminar Name")
+                {
+                    Editable = false;
                 }
                 field(StudentID; Rec.StudentID)
                 {
-
+                    Editable = false;
                 }
                 field(StudentName; Rec.StudentName)
                 {
@@ -24,15 +30,13 @@ page 50103 "Participant List Subpage"
                 }
                 field(Date; Rec.Date)
                 {
-
+                    Editable = false;
                 }
                 field(Grade; Rec.Grade)
                 {
-
+                    Editable = false;
                 }
             }
         }
-
-        //ACTION ON VALI IF SEMINAR_ID IS valid
     }
 }
