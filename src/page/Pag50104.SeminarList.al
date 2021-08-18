@@ -6,6 +6,7 @@ page 50104 "SeminarList"
     UsageCategory = Lists;
     SourceTable = "Seminar";
     //CardPageId = 50102;
+    //GitTEST
     layout
     {
         area(Content)
