@@ -5,8 +5,7 @@ page 50104 "SeminarList"
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = "Seminar";
-    //CardPageId = 50102;
-    //GitTEST
+    //CardPageId = 50107;
     layout
     {
         area(Content)
@@ -42,7 +41,7 @@ page 50104 "SeminarList"
         }
         area(FactBoxes)
         {
-            part("Seminar FactBox"; "SeminarFactBox")
+            part("SeminarFactBox"; "SeminarFactBox")
             {
                 Caption = 'Seminar Information FactBox';
                 SubPageLink = "SeminarID" = field("SeminarID");

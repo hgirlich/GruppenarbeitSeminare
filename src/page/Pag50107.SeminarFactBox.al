@@ -1,9 +1,9 @@
 page 50107 "SeminarFactBox"
 {
     Caption = 'Seminar FactBox';
-    PageType = ListPart;
+    PageType = CardPart;
     ApplicationArea = All;
-    UsageCategory = Lists;
+    UsageCategory = Documents;
     SourceTable = "Seminar";
 
     InsertAllowed = false;
